@@ -21,7 +21,7 @@ class UnionFind:
         return(len(uniques))
 
 class Solution:
-    def minCostToSupplyWater(self, n: int, wells: List[int], pipes: List[List[int]]) -> int:
+    def minCostToSupplyWater(self, n: int, wells: List[int], pipes: List[List[int]]) -> int: #note this uses minimum spanning tree which invoves finding the n-1 smallest edges and joining them
         edges = list(pipes)
         edges = edges + [[ind+1,0,well] for ind, well in enumerate(wells)] #the wells list acts as a single extra node 0 which connects to each node and has the weight of having a well
         edges = sorted(edges, key=lambda x:x[2]) #sort the list based on the 3rd element
