@@ -10,13 +10,10 @@ class Solution:
                 return True
             if node in seen:
                 return False
-            
             seen.add(node)
             for n in neighbors[node]:
                 if dfs(n, end, seen):
                     return True
-                
             return False
-        
         seen = set()    
         return dfs(source, destination, seen)
