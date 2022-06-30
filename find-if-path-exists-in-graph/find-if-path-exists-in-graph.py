@@ -2,18 +2,25 @@ class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
         neighbors = defaultdict(list)
         for n1, n2 in edges:
-            neighbors[n1].append(n2)
+            neighbors[n1].append(n2) #connect edges and make graph with all edges
             neighbors[n2].append(n1)
-            
-        def dfs(node, end, seen):
-            if node == end:
+
+        queue = collections.deque([source])
+        seen = set([source])
+
+        while queue:
+            # Get the current node.
+            node = queue.popleft()
+
+            # Check if we have reached the target node.
+            if node == destination:
                 return True
-            if node in seen:
-                return False
-            seen.add(node)
-            for n in neighbors[node]:
-                if dfs(n, end, seen):
-                    return True
-            return False
-        seen = set()    
-        return dfs(source, destination, seen)
+
+            # Add all neighbors to the queue.
+            for neighbor in neighbors[node]:
+                # Check if neighbor has been added to the queue before.
+                if neighbor not in seen:
+                    seen.add(neighbor)
+                    queue.append(neighbor)
+        # Our queue is empty and we did not reach the end node.
+        return False
