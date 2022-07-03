@@ -15,10 +15,10 @@ class Solution:
                     return(False)
                 elif visited[neighbours] == 0: # if this neighbour has never been v isited before then add it to the stack of nodes to check next
                     stack.append(neighbours)
-                #note if visited is 2 then we can ignore and do nothing and just remove this node from the stack
-            if current == stack[-1]:
-                if (len(graph[current]) == 0) and (current != destination):
+                #note if visited is 2 then we can ignore and do nothing as it will lead to the destination node
+            if current == stack[-1]: #if nothing has been added to the stack aka all the neighbours are 2 or it had no neighbours in the first place. if something has been added then go down that path
+                if (len(graph[current]) == 0) and (current != destination): #if it had no neighbours and the node is not equal to the destination then return false
                     return(False)
-                else:
+                else: #else just pop this node and move on as it will either have a neghour point to a 2 meaning it will lead to destination node or it is the destinatio node so again set it as 2.
                     visited[stack.pop()] =2
         return(True)
