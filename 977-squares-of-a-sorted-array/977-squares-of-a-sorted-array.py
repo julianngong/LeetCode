@@ -12,5 +12,5 @@ class Solution:
             else:
                 new[i]=last**2
                 back-=1
-        return(new) #If you wanna fill in list in reverse then make an empty list of x elements and have a for loop iterating backwards
+        return(new)
             
