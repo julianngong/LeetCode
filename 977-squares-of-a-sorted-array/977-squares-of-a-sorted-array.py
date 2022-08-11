@@ -2,15 +2,15 @@ class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
         front=0
         back=len(nums)-1
-        new=[]
-        while back>=front:
+        new=[0]*len(nums)
+        for i in range(len(nums)-1,-1,-1):
             first = abs(nums[front])
             last = abs(nums[back])
             if first>last:
-                new.insert(0, first**2)
+                new[i]=first**2
                 front+=1
             else:
-                new.insert(0, last**2)
+                new[i]=last**2
                 back-=1
-        return(new)
+        return(new) #If you wanna fill in list in reverse then make an empty list of x elements and have a for loop iterating backwards
             
