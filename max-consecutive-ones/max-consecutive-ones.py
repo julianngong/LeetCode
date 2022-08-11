@@ -4,9 +4,6 @@ class Solution:
         front = 0
         longest = 0
         while front != len(nums):
-            #print('front ',front)
-            #print('back ',back)
-            #print('longest ',longest)
             if nums[back] != 1:
                 back+=1
                 front=back
