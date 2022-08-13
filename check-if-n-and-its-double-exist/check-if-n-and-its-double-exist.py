@@ -2,7 +2,6 @@ from collections import defaultdict
 class Solution:
     def checkIfExist(self, arr: List[int]) -> bool:
         table = defaultdict()
-        zeroseen = False
         for num in arr:
             if num == 0 and arr.count(0)>1:
                 return(True)
