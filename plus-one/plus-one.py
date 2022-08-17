@@ -7,14 +7,9 @@ class Solution:
             if digits[i]+carry<10:
                 digits[i]=digits[i]+carry
                 carry=0
-            elif digits[i]+carry==10:
+            else:
                 digits[i]=0
                 carry=1
-            else:
-                digits[i]=1
-                carry=1
-            print(digits)
-            print('carry ',carry)
         if carry ==1:
             digits.insert(0, 1)
         return(digits)
