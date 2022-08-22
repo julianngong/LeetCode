@@ -1,5 +1,5 @@
 class Solution:
-    def reverseWords(self, s: str) -> str:
+    def reverseWords1(self, s: str) -> str:
         n=len(s)
         s+=' '
         output = ''
@@ -21,3 +21,9 @@ class Solution:
                 else:
                     back+=1
         return(output)
+    def reverseWords(self, s: str) -> str:
+        x = s.split()
+        x.reverse()
+        y = " ".join(x)
+        return y
+        
