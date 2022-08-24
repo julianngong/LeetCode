@@ -9,6 +9,6 @@ class Solution:
         if (root==None or val == root.val):
             return(root)
         if val<root.val:
-            return(self.searchBST(root.left,val))
+            return(self.searchBST(root.left,val)) #note with recursion as soon as something is returned like this in a tree it is returned all the way up
         else:
             return(self.searchBST(root.right,val))
