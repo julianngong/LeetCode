@@ -6,17 +6,13 @@
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         result=ListNode()
-        if list1==None and list2==None:
-            result=None
-        elif list1==None:
-            result=list2
+        if list1==None:
+            return(list2)
         elif list2==None:
-            result=list1
+            return(list1)
         elif list1.val<list2.val:
-            result.val=list1.val
-            result.next=self.mergeTwoLists(list1.next,list2)
+            list1.next=self.mergeTwoLists(list1.next,list2)
+            return(list1)
         elif list1.val>=list2.val:
-            result.val=list2.val
-            result.next=self.mergeTwoLists(list1,list2.next)
-        print(result)
-        return(result)
+            list2.next=self.mergeTwoLists(list1,list2.next)
+            return(list2)
