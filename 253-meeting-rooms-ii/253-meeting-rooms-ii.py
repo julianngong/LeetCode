@@ -8,7 +8,7 @@ class Solution:
                 heapq.heappop(endtimesheap)
             #if not then add this end time of this meeting to the heap of the current running meeting end times
             heapq.heappush(endtimesheap,interval[1]) # this will essentially be replacing the old meeting which had expired with the current meeting 
-        return(len(endtimesheap)) #the length of the heap at the end are all the meeting rooms which needed to be used. we only add a meeting to the heap if an extra meeting room is needed due to all the curent ones not finishing before it needs to start. each time we decrease one room by popping the list we replace it with a newer one so this is always non decreasing hence lenght of heap is number of rooms needed
+        return(len(endtimesheap)) #the length of the heap at the end are all the meeting rooms which needed to be used. we only add a meeting to the heap if an extra meeting room is needed due to all the curent ones not finishing before it needs to start. each time we decrease one room by popping the list we replace it with a newer one so this is always non decreasing hence lenght of heap is number of rooms neededdd
                 
 
             
